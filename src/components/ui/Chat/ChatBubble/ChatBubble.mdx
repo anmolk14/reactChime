@@ -1,0 +1,88 @@
+import { Props, Canvas } from '@storybook/addon-docs/blocks';
+import { ThemeProvider } from 'styled-components';
+
+import ChatBubble from './';
+import MessageAttachment from '../MessageAttachment';
+import { lightTheme } from '../../../../theme';
+import { GlobalStyles } from '../../../../theme/GlobalStyles';
+
+# ChatBubble
+
+The ChatBubble component displays incoming and outgoing chat messages and data.
+It also determines the style of the bubble including color, chat bubble tail visibility, and name visibility.
+
+## Importing
+
+```javascript
+import {
+  ChatBubble,
+  MessageAttachment,
+} from 'amazon-chime-sdk-component-library-react';
+```
+
+## Example
+
+<Canvas style={{ backgroundColor: '#eee' }}>
+  <ThemeProvider theme={lightTheme}>
+    <GlobalStyles />
+    <ChatBubble
+      variant="incoming"
+      senderName="Jim Halpert"
+      time="9:47 AM"
+      content="I've always been your biggest flan."
+      css="margin: 1rem;"
+    />
+    <ChatBubble
+      variant="outgoing"
+      senderName="Ryan Howard"
+      time="9:45 AM"
+      content="You should have put him in custardy."
+      css="margin: 1rem;"
+    />
+    <ChatBubble
+      variant="outgoing"
+      senderName="Fred Miller"
+      content="This is an outgoing message with attachment"
+      css="margin: 1rem;"
+    >
+      <MessageAttachment
+        name="Report.pdf"
+        size="23.3KB"
+        downloadUrl="https://test.com/download/Report.pdf"
+      />
+    </ChatBubble>
+  </ThemeProvider>
+</Canvas>
+
+```jsx
+    <ChatBubble
+      variant="incoming"
+      senderName="Jim Halpert"
+      time="9:47 AM"
+      content="I've always been your biggest flan."
+      css="margin: 1rem;"
+    />
+    <ChatBubble
+      variant="outgoing"
+      senderName="Ryan Howard"
+      time="9:45 AM"
+      content="You should have put him in custardy."
+      css="margin: 1rem;"
+    />
+    <ChatBubble
+      variant="outgoing"
+      senderName="Fred Miller"
+      content="This is an outgoing message with attachment"
+      css="margin: 1rem;"
+    >
+      <MessageAttachment
+        name="Report.pdf"
+        size="23.3KB"
+        downloadUrl="https://test.com/download/Report.pdf"
+      />
+    </ChatBubble>
+```
+
+## Props
+
+<Props of={ChatBubble} />
